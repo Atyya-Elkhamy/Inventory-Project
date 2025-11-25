@@ -138,3 +138,6 @@ CRISPY_TEMPLATE_PACK = 'bootstrap5'
 AUTH_USER_MODEL = 'accounts.User'
 
 LOGIN_URL = "login"
+CSRF_TRUSTED_ORIGINS = [
+    "https://inventory.rootmatrix.cloud",
+]
