@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-&94kl1$wg^%9^zml14qlj=%o^8-$ok)%ey+ou8yhtf3tp$x)c(
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["*", "inventory.rootmatrix.cloud"]
 
 AUTH_USER_MODEL = 'accounts.User'
 # Application definition
@@ -76,41 +76,16 @@ TEMPLATES = [
 WSGI_APPLICATION = 'Inventory_Management_System.wsgi.application'
 
 
-# Database
-# https://docs.djangoproject.com/en/5.1/ref/settings/#databases
-
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.sqlite3',
-#         'NAME': BASE_DIR / 'db.sqlite3',
-#     }
-# }
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.postgresql',
-#         'NAME': 'inventory',  
-#         'USER': 'postgres',         
-#         'PASSWORD': '12345678', 
-#         'HOST': 'localhost',           
-#         'PORT': '5432',                 
-#     }
-# }
-
-
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': os.getenv('POSTGRES_DB', 'inventory'),
+        'NAME': os.getenv('POSTGRES_DB', 'mydatabase'),
         'USER': os.getenv('POSTGRES_USER', 'postgres'),
-        'PASSWORD': os.getenv('POSTGRES_PASSWORD', '12345678qwe'),
-        'HOST': os.getenv('POSTGRES_HOST', 'db'),  # Match the service name in docker-compose
-        'PORT': os.getenv('POSTGRES_PORT', '5433'),
+        'PASSWORD': os.getenv('POSTGRES_PASSWORD', '12345678'),
+        'HOST': os.getenv('POSTGRES_HOST', 'db'),
+        'PORT': os.getenv('POSTGRES_PORT', '5432'),
     }
 }
-
-ALLOWED_HOSTS = ["atyyaelkhamy55.zapto.org","atyya33django33.duckdns.org","127.0.0.1", "localhost"]  # Change this later to your DuckDNS domain
-
-
 
 # Password validation
 # https://docs.djangoproject.com/en/5.1/ref/settings/#auth-password-validators
@@ -130,7 +105,6 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-
 # Internationalization
 # https://docs.djangoproject.com/en/5.1/topics/i18n/
 
@@ -141,7 +115,6 @@ TIME_ZONE = 'UTC'
 USE_I18N = True
 
 USE_TZ = True
-
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.1/howto/static-files/
@@ -159,7 +132,6 @@ MEDIA_ROOT = os.path.join(BASE_DIR,'media')
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-
 
 CRISPY_TEMPLATE_PACK = 'bootstrap5'
 
