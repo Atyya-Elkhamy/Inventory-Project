@@ -15,6 +15,7 @@
 # # Expose port
 # EXPOSE 8000
 
+
 # # No collectstatic here because DB isn’t ready yet.
 # CMD ["sh", "-c", "python manage.py migrate && python manage.py collectstatic --noinput && gunicorn Inventory_Management_System.wsgi:application --bind 0.0.0.0:8000"]
 
